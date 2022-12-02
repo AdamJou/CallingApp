@@ -17,7 +17,7 @@ const bodyParser = require('body-parser');
 
 
 
-dialer.configure(config);
+dialer.configure(null);
 httpServer.use(bodyParser.json());
 httpServer.use(cors());
 httpServer.use(function(req, res, next) {
