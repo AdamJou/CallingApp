@@ -17,7 +17,7 @@ const bodyParser = require('body-parser');
 
 
 
-dialer.configure(null);
+dialer.configure(null); // config in case you have login & pass
 httpServer.use(bodyParser.json());
 httpServer.use(cors());
 httpServer.use(function(req, res, next) {
@@ -37,7 +37,7 @@ const io = new Server(serverInstance);
 httpServer.post('/call/', async (req, res) => {
   const number1 = req.body.number;
   const number2 = '555555555' //default number
-  console.log('Dzwonie', number1, number2)
+  console.log('Calling..', number1, number2)
   bridge = await dialer.call(number1, number2);
   let oldStatus = null
   let interval = setInterval(async () => {
